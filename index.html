@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<link rel="icon" href="data:," />
+<title>TalentPlus — Step Inside | Gushcloud Talent Agency, Dubai &amp; MENA</title>
+<meta name="description" content="Walk through TalentPlus like a place: the creator lounge, campaign floor, strategy room, screening room and Dubai rooftop. 5,000+ creators, 2,000+ campaigns, 1,000+ clients." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F4F0E6;
+  --cream-2:#EDE7D9;
+  --paper:#FBF9F3;
+  --ink:#121A14;
+  --ink-2:#1B2A1F;
+  --ink-soft:#3E4A40;
+  --muted:#6F786E;
+  --tan:#C9A876;
+  --tan-dark:#A9874F;
+  --gold:#D9B36A;
+  --line:rgba(18,26,20,.14);
+  --line-light:rgba(244,240,230,.18);
+  --serif:"Playfair Display", Georgia, serif;
+  --sans:"Manrope", system-ui, -apple-system, Segoe UI, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;min-height:44px}
+::selection{background:var(--ink);color:var(--cream)}
+
+/* ---------- Floating pill nav (Foundera signature) ---------- */
+.pillnav{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:90;
+  width:min(620px,calc(100% - 24px));
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 10px 8px 22px;border-radius:999px;
+  background:rgba(251,249,243,.72);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid rgba(255,255,255,.65);
+  box-shadow:0 18px 44px rgba(18,26,20,.18);
+}
+.pillnav .brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.pillnav .brand em{font-style:italic;color:var(--tan-dark)}
+.pillnav .cta{
+  background:var(--ink);color:var(--cream);border:0;border-radius:999px;
+  padding:0 22px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;min-height:42px;text-decoration:none;white-space:nowrap;
+}
+.pillnav .cta:hover{background:var(--ink-2)}
+.pillnav .iconbtn{
+  width:42px;height:42px;min-height:42px;border-radius:50%;border:0;flex:0 0 auto;
+  background:rgba(18,26,20,.07);display:grid;place-items:center;font-size:17px;text-decoration:none;
+}
+.pillnav .iconbtn:hover{background:rgba(18,26,20,.13)}
+
+/* ---------- Tour progress rail ---------- */
+.tour-rail{
+  position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:80;
+  display:flex;flex-direction:column;gap:6px;
+}
+.tour-rail a{
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+  padding:6px 10px 6px 6px;border-radius:999px;min-height:36px;
+}
+.tour-rail .dot{
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+  font-size:11px;font-weight:800;letter-spacing:.02em;
+  background:rgba(251,249,243,.75);border:1px solid var(--line);color:var(--ink-soft);
+  backdrop-filter:blur(8px);transition:all .35s ease;
+}
+.tour-rail .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);opacity:0;transform:translateX(-4px);transition:all .3s ease;background:rgba(251,249,243,.85);padding:5px 10px;border-radius:999px;backdrop-filter:blur(8px)}
+.tour-rail a:hover .lbl,.tour-rail a.active .lbl{opacity:1;transform:none}
+.tour-rail a.active .dot{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:scale(1.12)}
+.tour-progress{position:fixed;top:0;left:0;height:3px;background:var(--tan-dark);z-index:95;width:0%}
+@media(max-width:900px){.tour-rail{display:none}}
+
+/* ---------- HERO : the arrival ---------- */
+.hero-scroll{height:220vh;position:relative;background:var(--ink)}
+.hero-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,filter}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,11,.28) 0%,rgba(10,14,11,0) 34%,rgba(10,14,11,0) 62%,rgba(10,14,11,.42) 100%)}
+.hero-word{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;
+  will-change:transform,opacity;padding:0 8px;
+}
+.hero-word h1{
+  font-family:var(--serif);font-weight:700;color:#FBF7EC;margin:0;line-height:.95;
+  font-size:clamp(56px,13.5vw,218px);letter-spacing:-.015em;text-align:center;
+  text-shadow:0 10px 60px rgba(0,0,0,.25);white-space:nowrap;
+}
+.hero-word h1 em{font-style:italic;font-weight:600}
+.hero-meta{
+  position:absolute;left:0;right:0;bottom:0;padding:26px clamp(18px,4vw,54px) 30px;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;color:#FBF7EC;
+}
+.hero-meta .kicker{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;opacity:.85;margin:0 0 8px}
+.hero-meta h2{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:600;margin:0;line-height:1.15;max-width:520px}
+.hero-meta h2 em{font-style:italic;color:var(--gold)}
+.hero-scrollcue{text-align:center;font-size:11px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;opacity:.9}
+.hero-scrollcue .line{width:1px;height:44px;background:rgba(251,247,236,.7);margin:10px auto 0;animation:cue 2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.hero-badge{
+  position:absolute;top:96px;right:clamp(16px,4vw,52px);color:#FBF7EC;text-align:right;
+  font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.7;text-transform:uppercase;
+}
+.hero-badge strong{font-family:var(--serif);font-size:30px;display:block;letter-spacing:0;text-transform:none}
+@media(max-width:640px){.hero-badge{display:none}.hero-meta{flex-direction:column;align-items:flex-start}.hero-scrollcue{display:none}}
+
+/* ---------- Intro (Foundera manifesto) ---------- */
+.intro{padding:clamp(70px,10vw,130px) 20px clamp(50px,7vw,90px);text-align:center}
+.intro p{max-width:820px;margin:0 auto;font-size:clamp(19px,2.5vw,27px);line-height:1.55;color:var(--ink-soft);font-weight:500}
+.intro p strong{color:var(--ink);font-weight:800}
+.intro p em{font-family:var(--serif);font-style:italic;color:var(--ink)}
+.btn-big{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-top:42px;
+  background:var(--ink);color:var(--cream);text-decoration:none;border:0;
+  padding:22px 52px;font-size:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;border-radius:4px;min-height:60px;
+}
+.btn-big:hover{background:var(--ink-2)}
+.btn-tan{background:var(--tan);color:var(--ink)}
+.btn-tan:hover{background:#d8bc8d}
+
+/* ---------- Walk-through chapters ---------- */
+.chapter-scroll{height:190vh;position:relative}
+.chapter-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--ink)}
+.chapter-sticky img.bg{position:absolute;inset:0;width:100%;height:112%;object-fit:cover;will-change:transform}
+.chapter-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,11,.66) 0%,rgba(10,15,11,.34) 46%,rgba(10,15,11,0) 75%)}
+.chapter-shade.right{background:linear-gradient(270deg,rgba(10,15,11,.66) 0%,rgba(10,15,11,.34) 46%,rgba(10,15,11,0) 75%)}
+.chapter-card{
+  position:absolute;top:50%;transform:translateY(-50%);left:clamp(18px,6vw,96px);
+  max-width:480px;color:#FBF7EC;padding:10px 0;will-change:transform,opacity;
+}
+.chapter-card.right{left:auto;right:clamp(18px,6vw,96px)}
+.chapter-num{font-size:12px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;display:flex;align-items:center;gap:12px}
+.chapter-num::after{content:"";height:1px;width:52px;background:var(--gold);display:inline-block}
+.chapter-card h3{font-family:var(--serif);font-size:clamp(38px,5.4vw,68px);line-height:1.02;margin:0 0 16px;font-weight:600}
+.chapter-card h3 em{font-style:italic;color:var(--gold)}
+.chapter-card p{font-size:clamp(15px,1.6vw,18px);line-height:1.65;margin:0 0 22px;color:rgba(251,247,236,.88);max-width:42ch}
+.chapter-stat{display:flex;gap:34px;flex-wrap:wrap}
+.chapter-stat div b{font-family:var(--serif);font-size:clamp(30px,3.6vw,44px);display:block;font-weight:700;line-height:1}
+.chapter-stat div span{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+.chapter-next{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:rgba(251,247,236,.85);font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:700px){
+  .chapter-shade,.chapter-shade.right{background:linear-gradient(0deg,rgba(10,15,11,.78) 0%,rgba(10,15,11,.35) 55%,rgba(10,15,11,.1) 100%)}
+  .chapter-card,.chapter-card.right{left:18px;right:18px;top:auto;bottom:64px;transform:none;max-width:none}
+}
+
+/* ---------- Amenities grid (inside the house) ---------- */
+.section{padding:clamp(70px,9vw,120px) clamp(16px,4vw,54px);max-width:1460px;margin:0 auto}
+.section-head{text-align:center;max-width:760px;margin:0 auto 48px}
+.section-head .kicker{font-size:11px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--tan-dark);margin:0 0 14px}
+.section-head h2{font-family:var(--serif);font-size:clamp(34px,4.6vw,58px);font-weight:600;margin:0 0 14px;line-height:1.08}
+.section-head h2 em{font-style:italic}
+.section-head p{color:var(--muted);font-size:17px;line-height:1.6;margin:0}
+.grid-rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.room-card{background:var(--paper);border:1px solid var(--line);overflow:hidden;text-decoration:none;display:block}
+.room-card .ph{height:250px;overflow:hidden}
+.room-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.room-card:hover .ph img{transform:scale(1.06)}
+.room-card .cap{padding:18px 20px 20px;text-align:center}
+.room-card .cap h3{font-family:var(--serif);font-size:21px;font-weight:600;margin:0 0 6px}
+.room-card .cap p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+@media(max-width:980px){.grid-rooms{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid-rooms{grid-template-columns:1fr}.room-card .ph{height:220px}}
+
+/* ---------- Two paths (Foundera pricing) ---------- */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}
+.path-card{background:var(--paper);border:1px solid var(--line);padding:40px 36px;text-align:center}
+.path-card .price{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:700;line-height:1}
+.path-card .who{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:10px 0 20px}
+.path-card p{color:var(--ink-soft);font-size:15px;line-height:1.65;margin:0 0 26px}
+.path-card ul{list-style:none;margin:0 0 30px;padding:0;text-align:left}
+.path-card li{padding:9px 0;border-top:1px solid var(--line);font-size:14.5px;display:flex;gap:10px;align-items:baseline}
+.path-card li::before{content:"—";color:var(--tan-dark);font-weight:800}
+.path-card a{display:flex;align-items:center;justify-content:center;background:var(--tan);color:var(--ink);text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:16px;min-height:52px}
+.path-card a:hover{background:#d8bc8d}
+.path-card.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.path-card.dark p{color:rgba(244,240,230,.75)}
+.path-card.dark .who{color:rgba(244,240,230,.55)}
+.path-card.dark li{border-color:var(--line-light)}
+.paths-note{text-align:center;color:var(--muted);max-width:640px;margin:26px auto 0;font-size:15px;line-height:1.65}
+@media(max-width:760px){.paths{grid-template-columns:1fr}}
+
+/* ---------- Full-bleed gallery ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 6px}
+.gallery figure{margin:0;position:relative;overflow:hidden;height:clamp(260px,38vw,480px)}
+.gallery figure.wide{grid-column:1/-1;height:clamp(300px,44vw,560px)}
+.gallery figure img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.gallery figcaption{position:absolute;left:14px;bottom:14px;background:rgba(10,14,11,.72);color:#FBF7EC;font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:8px 13px;backdrop-filter:blur(6px)}
+@media(max-width:640px){.gallery{grid-template-columns:1fr}.gallery figure{height:280px}}
+
+/* ---------- Screening room / featured work ---------- */
+.screening{background:var(--ink);color:var(--cream);margin-top:clamp(60px,8vw,110px)}
+.screening .section-head h2{color:var(--cream)}
+.screening .section-head p{color:rgba(244,240,230,.65)}
+.screening .section-head .kicker{color:var(--gold)}
+.case-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.case-tabs button{background:transparent;color:rgba(244,240,230,.75);border:1px solid var(--line-light);border-radius:999px;padding:0 20px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;min-height:44px}
+.case-tabs button.active{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.case-panel{display:grid;grid-template-columns:1.15fr 1fr;gap:0;background:var(--ink-2);border:1px solid var(--line-light);overflow:hidden;max-width:1180px;margin:0 auto}
+.case-panel .ph{min-height:380px}
+.case-panel .ph img{width:100%;height:100%;object-fit:cover}
+.case-panel .tx{padding:clamp(26px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
+.case-panel .tx .tag{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.case-panel .tx h3{font-family:var(--serif);font-size:clamp(28px,3.4vw,42px);font-weight:600;margin:0 0 14px;line-height:1.12}
+.case-panel .tx h3 em{font-style:italic;color:var(--gold)}
+.case-panel .tx p{color:rgba(244,240,230,.78);line-height:1.7;margin:0 0 22px;font-size:15.5px}
+.case-results{display:flex;gap:28px;flex-wrap:wrap}
+.case-results div b{font-family:var(--serif);font-size:28px;display:block}
+.case-results div span{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+@media(max-width:860px){.case-panel{grid-template-columns:1fr}.case-panel .ph{min-height:240px;height:260px}}
+
+/* ---------- Strategy explorer ---------- */
+.sectors{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:30px}
+.sectors button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:0 20px;font-size:13px;font-weight:700;min-height:44px}
+.sectors button.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.sector-panel{max-width:880px;margin:0 auto;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.sector-panel .big{font-family:var(--serif);font-size:clamp(44px,6vw,72px);font-weight:700;line-height:1;color:var(--tan-dark)}
+.sector-panel h3{font-family:var(--serif);font-size:26px;margin:0 0 10px;font-weight:600}
+.sector-panel p{color:var(--ink-soft);line-height:1.65;margin:0 0 14px;font-size:15.5px}
+.sector-panel .chips{display:flex;flex-wrap:wrap;gap:8px}
+.sector-panel .chips span{font-size:12px;font-weight:700;background:var(--cream-2);border:1px solid var(--line);padding:8px 13px;border-radius:999px}
+@media(max-width:640px){.sector-panel{grid-template-columns:1fr}}
+
+/* ---------- Community (dark, Foundera-style) ---------- */
+.community{background:var(--ink);color:var(--cream);padding:clamp(80px,10vw,140px) clamp(16px,4vw,54px)}
+.community h2{font-family:var(--serif);text-align:center;font-size:clamp(38px,5.4vw,68px);font-weight:600;margin:0 0 60px}
+.community h2 em{font-style:italic;color:var(--gold)}
+.comm-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:34px;align-items:center}
+.comm-stats div{border-top:1px solid var(--line-light);padding:22px 0}
+.comm-stats b{font-family:var(--serif);font-size:clamp(44px,5vw,64px);font-weight:700;display:block;line-height:1}
+.comm-stats span{color:rgba(244,240,230,.6);font-size:14.5px}
+.comm-photo{border-radius:190px 190px 18px 18px;overflow:hidden;height:clamp(420px,52vw,600px)}
+.comm-photo img{width:100%;height:100%;object-fit:cover}
+.comm-cards{display:flex;flex-direction:column;gap:16px}
+.comm-card{background:rgba(244,240,230,.05);border-top:2px solid var(--tan);padding:24px}
+.comm-card h3{margin:0 0 14px;font-size:19px;font-weight:800}
+.comm-card ul{margin:0;padding:0 0 0 18px;color:rgba(244,240,230,.75);line-height:2;font-size:14.5px}
+.comm-card li::marker{color:var(--tan)}
+@media(max-width:980px){.comm-grid{grid-template-columns:1fr;max-width:560px}.comm-photo{height:420px;order:-1}}
+
+/* ---------- Creators arches ---------- */
+.arches{display:flex;gap:12px;overflow-x:auto;padding:6px 4px 14px;scrollbar-width:none}
+.arches::-webkit-scrollbar{display:none}
+.arch{flex:0 0 clamp(150px,19vw,230px);text-align:center}
+@media(max-width:640px){
+  .arches{display:grid;grid-template-columns:1fr 1fr;overflow:visible}
+  .arch{flex:none}
+  .arch .ph{height:230px}
+}
+.arch .ph{height:clamp(210px,27vw,320px);border-radius:999px 999px 10px 10px;overflow:hidden}
+.arch .ph img{width:100%;height:100%;object-fit:cover}
+.arch h4{font-family:var(--serif);font-size:18px;margin:14px 0 2px;font-weight:600}
+.arch p{margin:0;color:var(--muted);font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- Marquee ---------- */
+.marquee{background:var(--ink);color:var(--cream);overflow:hidden;padding:20px 0;border-top:1px solid var(--line-light)}
+.marquee-track{display:flex;gap:56px;white-space:nowrap;width:max-content;animation:mq 30s linear infinite;font-family:var(--serif);font-size:20px;font-style:italic}
+.marquee-track span{opacity:.85}
+.marquee-track i{font-style:normal;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- Final CTA + form ---------- */
+.final{padding:clamp(90px,12vw,160px) 20px;text-align:center;background:var(--cream)}
+.final h2{font-family:var(--serif);font-size:clamp(46px,8vw,110px);line-height:1.02;font-weight:600;margin:0 0 18px}
+.final h2 em{font-style:italic;color:var(--tan-dark)}
+.final>p{color:var(--muted);font-size:18px;max-width:560px;margin:0 auto 44px;line-height:1.6}
+.brief{max-width:680px;margin:0 auto;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,4vw,40px);text-align:left}
+.brief .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.brief label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin:0 0 8px;color:var(--ink-soft)}
+.brief input,.brief select,.brief textarea{width:100%;border:1px solid var(--line);background:#fff;padding:14px;font:inherit;font-size:15px;border-radius:2px;min-height:48px;color:var(--ink)}
+.brief textarea{min-height:110px;resize:vertical}
+.brief .field{margin-bottom:16px}
+.brief button{width:100%;background:var(--ink);color:var(--cream);border:0;padding:18px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;min-height:56px}
+.brief button:hover{background:var(--ink-2)}
+.brief .sent{display:none;background:#EAF3E6;border:1px solid #B9D3AE;color:#2C4A22;padding:16px;font-size:14.5px;line-height:1.55;margin-top:16px}
+@media(max-width:600px){.brief .row{grid-template-columns:1fr}}
+footer{background:var(--ink);color:rgba(244,240,230,.7);padding:54px clamp(16px,4vw,54px) 40px}
+.foot-grid{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer .brand{font-family:var(--serif);font-size:30px;color:var(--cream);font-weight:700}
+footer a{color:rgba(244,240,230,.85);text-decoration:none}
+footer a:hover{color:#fff}
+footer nav{display:flex;gap:22px;flex-wrap:wrap}
+footer nav a{padding:10px 2px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.foot-base{max-width:1240px;margin:36px auto 0;border-top:1px solid var(--line-light);padding-top:20px;font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .marquee-track{animation:none}
+  .hero-scrollcue .line{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="tour-progress" id="tourProgress"></div>
+
+<header class="pillnav">
+  <a class="brand" href="#arrival">Talent<em>Plus</em></a>
+  <a class="cta" href="#brief">Start a brief</a>
+  <a class="iconbtn" href="mailto:info@talentplus.me" aria-label="Email TalentPlus">✉</a>
+</header>
+
+<nav class="tour-rail" aria-label="Tour stops">
+  <a href="#arrival" data-stop="arrival"><span class="dot">01</span><span class="lbl">The Arrival</span></a>
+  <a href="#lounge" data-stop="lounge"><span class="dot">02</span><span class="lbl">Creator Lounge</span></a>
+  <a href="#floor" data-stop="floor"><span class="dot">03</span><span class="lbl">Campaign Floor</span></a>
+  <a href="#playroom" data-stop="playroom"><span class="dot">04</span><span class="lbl">Beauty &amp; Play</span></a>
+  <a href="#strategy" data-stop="strategy"><span class="dot">05</span><span class="lbl">Strategy Room</span></a>
+  <a href="#screening" data-stop="screening"><span class="dot">06</span><span class="lbl">Screening Room</span></a>
+  <a href="#rooftop" data-stop="rooftop"><span class="dot">07</span><span class="lbl">The Rooftop</span></a>
+</nav>
+
+<!-- 01 · HERO / ARRIVAL -->
+<div class="hero-scroll" id="arrival">
+  <div class="hero-sticky">
+    <img class="hero-img" id="heroImg" src="https://dmmcy0pwk6bqi.cloudfront.net/4bc70f39332c938b23fe0972da91ca6e7627a950" alt="Creators filming inside the TalentPlus studio in Dubai, with the Burj Khalifa skyline at golden hour" />
+    <div class="hero-shade"></div>
+    <div class="hero-badge"><strong>5,000+</strong>influencer connections<br />in the network</div>
+    <div class="hero-word" id="heroWord"><h1>Talent<em>Plus</em></h1></div>
+    <div class="hero-meta">
+      <div>
+        <p class="kicker">Gushcloud Talent Plus · Dubai — for the world</p>
+        <h2>Don't just visit a website. <em>Walk through</em> the house where MENA's creators go global.</h2>
+      </div>
+      <div class="hero-scrollcue">Scroll to enter<div class="line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="intro">
+  <p class="rv"><strong>TalentPlus is a home built by creators, for brands, in Dubai.</strong> It brings talent, campaigns and community under one roof — <em>5,000+ influencer connections, 2,000+ campaigns delivered and 1,000+ clients</em> — so a creator from the region can end up on a screen anywhere in the world. Keep scrolling: every room opens as you walk.</p>
+  <a class="btn-big" href="#lounge">Begin the tour ↓</a>
+</section>
+
+<!-- 02 · CREATOR LOUNGE -->
+<div class="chapter-scroll" id="lounge" data-chapter>
+  <div class="chapter-sticky">
+    <img class="bg" src="https://dmmcy0pwk6bqi.cloudfront.net/77fc95530901928adf81d229cea9aded0b267838" alt="Creators collaborating around a marble table in the TalentPlus creator lounge" />
+    <div class="chapter-shade"></div>
+    <div class="chapter-card">
+      <p class="chapter-num">Stop 02 — The Creator Lounge</p>
+      <h3>Where every campaign <em>starts as a conversation.</em></h3>
+      <p>This is the first room everyone walks into. Creators pitch, teams cast, ideas get tested over coffee — with the Burj outside the window and 20+ years of Gushcloud craft behind the door.</p>
+      <div class="chapter-stat">
+        <div><b data-count="5000">0</b><span>Creator connections</span></div>
+        <div><b data-count="20" data-suffix="+">0</b><span>Years of craft</span></div>
+      </div>
+    </div>
+    <div class="chapter-next">Next room — The Campaign Floor ↓</div>
+  </div>
+</div>
+
+<!-- INSIDE THE HOUSE GRID -->
+<section class="section" id="inside">
+  <div class="section-head rv">
+    <p class="kicker">Inside the house</p>
+    <h2>Everything a brand needs, <em>under one roof</em></h2>
+    <p>Like a good house tour, here is what each corner of TalentPlus actually does for you.</p>
+  </div>
+  <div class="grid-rooms">
+    <a class="room-card rv" href="#strategy"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/77fc95530901928adf81d229cea9aded0b267838" alt="Creator casting in the lounge" loading="lazy"></div><div class="cap"><h3>Creator Casting w/ Real Fit</h3><p>Matched by audience, culture and language — not just follower count.</p></div></a>
+    <a class="room-card rv" href="#floor"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/1c84a2c8824d96bda0f1a1f401002257109cee23" alt="Campaign production on set" loading="lazy"></div><div class="cap"><h3>Full Campaign Production</h3><p>Concept, shoot, edit and delivery handled in-house, end to end.</p></div></a>
+    <a class="room-card rv" href="#playroom"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/098ce361ae2449de4313a608147645ebcec46c7a" alt="Beauty creator filming a tutorial" loading="lazy"></div><div class="cap"><h3>Beauty &amp; Lifestyle Studio</h3><p>Tutorials, reviews and routines made for how the region actually shops.</p></div></a>
+    <a class="room-card rv" href="#screening"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/976a2851c81e8b3fcebfbe6c7ff9bd75fb56453e" alt="Watching campaign films in the screening room" loading="lazy"></div><div class="cap"><h3>Screening &amp; Approvals</h3><p>Every film reviewed on the big screen before it ever goes live.</p></div></a>
+    <a class="room-card rv" href="#strategy"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/70f1d2239d7e48aaec7a2ec0ce27397e1fb1df80" alt="Strategy team planning a campaign" loading="lazy"></div><div class="cap"><h3>Strategy w/ Local Insight</h3><p>MENA-first thinking, planned for global feeds from day one.</p></div></a>
+    <a class="room-card rv" href="#rooftop"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/b4ad00a02fc6a36934114e46dc46ab398a26d177" alt="Agency rooftop event in Dubai at night" loading="lazy"></div><div class="cap"><h3>Rooftop &amp; Community</h3><p>Launches, dinners and creator nights above the Dubai skyline.</p></div></a>
+  </div>
+</section>
+
+<!-- 03 · CAMPAIGN FLOOR -->
+<div class="chapter-scroll" id="floor" data-chapter>
+  <div class="chapter-sticky">
+    <img class="bg" src="https://dmmcy0pwk6bqi.cloudfront.net/1c84a2c8824d96bda0f1a1f401002257109cee23" alt="A fashion campaign being shot on the TalentPlus campaign floor with full studio lighting" />
+    <div class="chapter-shade right"></div>
+    <div class="chapter-card right">
+      <p class="chapter-num">Stop 03 — The Campaign Floor</p>
+      <h3>Lights on. <em>2,000+ campaigns</em> have rolled from here.</h3>
+      <p>Fashion, beauty, tech, entertainment — this floor turns a brief into film, photography and social-first content that travels far beyond the region.</p>
+      <div class="chapter-stat">
+        <div><b data-count="2000">0</b><span>Campaigns delivered</span></div>
+        <div><b data-count="1000">0</b><span>Clients served</span></div>
+      </div>
+    </div>
+    <div class="chapter-next">Next room — Beauty &amp; Play ↓</div>
+  </div>
+</div>
+
+<!-- TWO PATHS -->
+<section class="section">
+  <div class="section-head rv">
+    <p class="kicker">Two ways in</p>
+    <h2>Two doors. <em>One house.</em></h2>
+    <p>Brands come in one door, creators through the other. Both end up in the same rooms.</p>
+  </div>
+  <div class="paths">
+    <div class="path-card rv">
+      <div class="price">For Brands</div>
+      <div class="who">Campaigns that travel</div>
+      <p>Tell us the goal. We cast, create and amplify — one team accountable from brief to results.</p>
+      <ul>
+        <li>Creator casting across MENA &amp; beyond</li>
+        <li>Concept, production &amp; delivery in-house</li>
+        <li>Paid amplification &amp; reporting</li>
+        <li>Events, PR &amp; launch moments</li>
+      </ul>
+      <a href="#brief">▶ &nbsp;Start a brand brief</a>
+    </div>
+    <div class="path-card dark rv">
+      <div class="price">For Creators</div>
+      <div class="who">Representation that grows you</div>
+      <p>Join the roster and get matched with brands that fit your audience — and a team that plans your next level.</p>
+      <ul>
+        <li>Brand deals matched to your niche</li>
+        <li>Management, negotiation &amp; payments handled</li>
+        <li>Studio access &amp; production support</li>
+        <li>A path from MENA to global stages</li>
+      </ul>
+      <a href="#brief">▶ &nbsp;Apply as a creator</a>
+    </div>
+  </div>
+  <p class="paths-note rv">No retainer surprises to start: every engagement begins with a brief and a conversation in the Lounge — scope and fees agreed before a single camera rolls.</p>
+  <div style="text-align:center"><a class="btn-big rv" href="#brief">Start a brief</a></div>
+</section>
+
+<!-- 04 · BEAUTY & PLAY -->
+<div class="chapter-scroll" id="playroom" data-chapter>
+  <div class="chapter-sticky">
+    <img class="bg" src="https://dmmcy0pwk6bqi.cloudfront.net/098ce361ae2449de4313a608147645ebcec46c7a" alt="A beauty creator recording a tutorial in the Beauty and Play room" />
+    <div class="chapter-shade"></div>
+    <div class="chapter-card">
+      <p class="chapter-num">Stop 04 — Beauty &amp; Play Room</p>
+      <h3>Where feeds are <em>made by hand.</em></h3>
+      <p>Tutorials, unboxings, game nights, food runs — the everyday content the region watches on repeat, produced with studio care and a creator's instinct.</p>
+      <div class="chapter-stat">
+        <div><b>6</b><span>Core sectors</span></div>
+        <div><b>360°</b><span>Content formats</span></div>
+      </div>
+    </div>
+    <div class="chapter-next">Next room — The Strategy Room ↓</div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery" aria-label="TalentPlus gallery">
+  <figure><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/4bc70f39332c938b23fe0972da91ca6e7627a950" alt="The main studio with Dubai skyline views" loading="lazy"><figcaption>The Main Studio</figcaption></figure>
+  <figure><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/1c84a2c8824d96bda0f1a1f401002257109cee23" alt="Campaign floor during a fashion shoot" loading="lazy"><figcaption>Campaign Floor</figcaption></figure>
+  <figure><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/098ce361ae2449de4313a608147645ebcec46c7a" alt="Beauty room tutorial setup" loading="lazy"><figcaption>Beauty Room</figcaption></figure>
+  <figure><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/70f1d2239d7e48aaec7a2ec0ce27397e1fb1df80" alt="Strategy room with campaign planning on the wall" loading="lazy"><figcaption>Strategy Room</figcaption></figure>
+  <figure class="wide"><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/b4ad00a02fc6a36934114e46dc46ab398a26d177" alt="Rooftop event overlooking the Dubai skyline at night" loading="lazy"><figcaption>Rooftop — Surrounded by the skyline</figcaption></figure>
+  <figure><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/976a2851c81e8b3fcebfbe6c7ff9bd75fb56453e" alt="Screening room with a campaign film on the big screen" loading="lazy"><figcaption>Screening Room</figcaption></figure>
+  <figure><img data-parallax src="https://dmmcy0pwk6bqi.cloudfront.net/e3b70533b9a44eea31058e52a70628471ef08f53" alt="TalentPlus creators together in the studio" loading="lazy"><figcaption>The Roster, Together</figcaption></figure>
+</div>
+
+<!-- 05 · STRATEGY ROOM + SECTORS -->
+<section class="section" id="strategy">
+  <div class="section-head rv">
+    <p class="kicker">Stop 05 — The Strategy Room</p>
+    <h2>Pick a sector. <em>See how the room works.</em></h2>
+    <p>Six sectors live in this house. Tap one to see what TalentPlus builds inside it.</p>
+  </div>
+  <div class="sectors rv" id="sectorBtns" role="tablist" aria-label="Sectors"></div>
+  <div class="sector-panel rv" id="sectorPanel"></div>
+</section>
+
+<!-- 06 · SCREENING ROOM -->
+<div class="screening" id="screening">
+  <section class="section" style="max-width:1460px">
+    <div class="section-head rv">
+      <p class="kicker">Stop 06 — The Screening Room</p>
+      <h2>Films this house is <em>proud to show</em></h2>
+      <p>Dim the lights. These are the campaign stories visitors ask about most.</p>
+    </div>
+    <div class="case-tabs rv" id="caseTabs" role="tablist" aria-label="Featured work"></div>
+    <div class="case-panel rv" id="casePanel"></div>
+  </section>
+</div>
+
+<!-- 07 · ROOFTOP / COMMUNITY -->
+<div class="chapter-scroll" id="rooftop" data-chapter>
+  <div class="chapter-sticky">
+    <img class="bg" src="https://dmmcy0pwk6bqi.cloudfront.net/b4ad00a02fc6a36934114e46dc46ab398a26d177" alt="TalentPlus rooftop gathering at night with the Burj Khalifa behind" />
+    <div class="chapter-shade right"></div>
+    <div class="chapter-card right">
+      <p class="chapter-num">Stop 07 — The Rooftop</p>
+      <h3>End of the tour. <em>Top of the world.</em></h3>
+      <p>Every tour ends up here — creators, brands and the Gushcloud global network under one skyline. From Dubai and MENA, the view is worldwide.</p>
+      <div class="chapter-stat">
+        <div><b>Global</b><span>Gushcloud network</span></div>
+        <div><b>MENA → World</b><span>Our direction</span></div>
+      </div>
+    </div>
+    <div class="chapter-next">The community, below ↓</div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<section class="community">
+  <h2 class="rv">The <em>Community</em></h2>
+  <div class="comm-grid">
+    <div class="comm-stats rv">
+      <div><b data-count="5000">0</b><span>creator connections in the network</span></div>
+      <div><b data-count="2000">0</b><span>campaigns walked through these rooms</span></div>
+      <div><b data-count="1000">0</b><span>clients who came in as guests, stayed as regulars</span></div>
+      <div><b data-count="20" data-suffix="+">0</b><span>years of Gushcloud craft behind the house</span></div>
+    </div>
+    <div class="comm-photo rv"><img src="https://dmmcy0pwk6bqi.cloudfront.net/e3b70533b9a44eea31058e52a70628471ef08f53" alt="The TalentPlus creator community together in the studio" loading="lazy"></div>
+    <div class="comm-cards rv">
+      <div class="comm-card">
+        <h3>Monthly in this house</h3>
+        <ul>
+          <li>Creator dinners &amp; roster nights</li>
+          <li>Brand showcases &amp; first looks</li>
+          <li>Launch events on the rooftop</li>
+          <li>Open studio days for new talent</li>
+        </ul>
+      </div>
+      <div class="comm-card">
+        <h3>How work gets made</h3>
+        <ul>
+          <li>Casting exchanges</li>
+          <li>Weekly campaign reviews</li>
+          <li>Creator growth sessions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="mqTrack"></div></div>
+
+<!-- CREATORS -->
+<section class="section">
+  <div class="section-head rv">
+    <p class="kicker">The residents</p>
+    <h2>Creators who <em>live here</em></h2>
+    <p>Beauty, fashion, entertainment, food, gaming and lifestyle — a roster built to be cast, not just counted.</p>
+  </div>
+  <div class="arches rv">
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/098ce361ae2449de4313a608147645ebcec46c7a" alt="Beauty creator portrait" loading="lazy" style="object-position:center 20%"></div><h4>Beauty</h4><p>Tutorials · Reviews</p></div>
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/1c84a2c8824d96bda0f1a1f401002257109cee23" alt="Fashion creator portrait" loading="lazy" style="object-position:center 25%"></div><h4>Fashion</h4><p>Editorial · Retail</p></div>
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/4bc70f39332c938b23fe0972da91ca6e7627a950" alt="Entertainment creator on set" loading="lazy" style="object-position:38% 30%"></div><h4>Entertainment</h4><p>Film · Streaming</p></div>
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/77fc95530901928adf81d229cea9aded0b267838" alt="Lifestyle creators collaborating" loading="lazy" style="object-position:20% 35%"></div><h4>Lifestyle</h4><p>Daily · Family</p></div>
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/e3b70533b9a44eea31058e52a70628471ef08f53" alt="Creator group portrait" loading="lazy"></div><h4>The Roster</h4><p>5,000+ connections</p></div>
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/b4ad00a02fc6a36934114e46dc46ab398a26d177" alt="Creators at a rooftop event" loading="lazy" style="object-position:20% 60%"></div><h4>Events</h4><p>Launches · Nights</p></div>
+    <div class="arch"><div class="ph"><img src="https://dmmcy0pwk6bqi.cloudfront.net/70f1d2239d7e48aaec7a2ec0ce27397e1fb1df80" alt="Creator planning with the strategy team" loading="lazy" style="object-position:center 30%"></div><h4>Growth</h4><p>Managed talent</p></div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="brief">
+  <h2 class="rv">Let's work<br /><em>together.</em></h2>
+  <p class="rv">You've walked the whole house. Now tell us what you'd like to build in it — the team replies from the Lounge.</p>
+  <form class="brief rv" id="briefForm">
+    <div class="row">
+      <div class="field"><label for="fName">Your name</label><input id="fName" required autocomplete="name" placeholder="e.g. Sara Al Mansoori"></div>
+      <div class="field"><label for="fCompany">Brand / Company</label><input id="fCompany" placeholder="e.g. Glow Cosmetics"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="fType">I am a</label>
+        <select id="fType"><option>Brand / Agency</option><option>Creator / Talent</option><option>Partner</option><option>Other</option></select></div>
+      <div class="field"><label for="fSector">Sector</label>
+        <select id="fSector"><option>Beauty</option><option>Fashion</option><option>Entertainment</option><option>Food &amp; Beverage</option><option>Gaming</option><option>Lifestyle</option><option>Other</option></select></div>
+    </div>
+    <div class="field"><label for="fMsg">What are we making?</label><textarea id="fMsg" required placeholder="Goal, audience, timing, budget range — anything you have."></textarea></div>
+    <button type="submit">Send brief to TalentPlus →</button>
+    <div class="sent" id="briefSent">✓ Your email app should open with the brief addressed to <b>info@talentplus.me</b>. If it didn't, write to us directly at info@talentplus.me.</div>
+  </form>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="brand">Talent<em style="color:var(--gold)">Plus</em></div>
+      <p style="max-width:340px;line-height:1.65;margin:12px 0 0">Gushcloud Talent Plus — the influencer agency taking MENA creators global. Dubai, for the world.</p>
+    </div>
+    <nav>
+      <a href="#lounge">Tour</a><a href="#inside">Inside</a><a href="#strategy">Sectors</a><a href="#screening">Work</a><a href="#brief">Brief</a>
+    </nav>
+    <div>
+      <p style="margin:0 0 8px;font-weight:800;color:var(--cream);letter-spacing:.1em;font-size:12px;text-transform:uppercase">Visit</p>
+      <a href="https://www.talentplus.me/" target="_blank" rel="noopener">talentplus.me</a><br />
+      <a href="mailto:info@talentplus.me">info@talentplus.me</a>
+    </div>
+  </div>
+  <div class="foot-base"><span>© TalentPlus · Gushcloud Talent Plus</span><span>Dubai · MENA · Worldwide</span></div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Hero: blur -> sharp, word grows & fades (Foundera opening) ---------- */
+  var heroImg = document.getElementById("heroImg");
+  var heroWord = document.getElementById("heroWord");
+  var heroScroll = document.getElementById("arrival");
+  var progress = document.getElementById("tourProgress");
+
+  /* ---------- Chapter parallax ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll("[data-chapter]"));
+  var gallImgs = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+  function onScroll(){
+    var y = window.scrollY;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    progress.style.width = (max>0 ? (y/max*100) : 0) + "%";
+
+    if(!reduced){
+      // hero progress 0..1 across its scroll track
+      var hr = heroScroll.getBoundingClientRect();
+      var hp = clamp(-hr.top / (heroScroll.offsetHeight - window.innerHeight), 0, 1);
+      var blur = (1-hp) * 14;
+      var scale = 1.18 - hp*0.18;
+      heroImg.style.filter = "blur(" + blur.toFixed(1) + "px)";
+      heroImg.style.transform = "scale(" + scale.toFixed(3) + ")";
+      heroWord.style.transform = "scale(" + (1 + hp*0.55).toFixed(3) + ")";
+      heroWord.style.opacity = String(1 - clamp((hp-0.45)/0.5,0,1));
+
+      chapters.forEach(function(ch){
+        var r = ch.getBoundingClientRect();
+        if(r.bottom < 0 || r.top > window.innerHeight) return;
+        var p = clamp(-r.top / (ch.offsetHeight - window.innerHeight), 0, 1);
+        var img = ch.querySelector("img.bg");
+        var card = ch.querySelector(".chapter-card");
+        if(img) img.style.transform = "translateY(" + ((p-0.5)*-7).toFixed(2) + "%) scale(1.06)";
+        if(card){
+          card.style.opacity = String(clamp(p*3,0,1) * (1 - clamp((p-0.82)/0.18,0,1)*0.0));
+          if(window.innerWidth > 700) card.style.transform = "translateY(calc(-50% + " + ((0.5-p)*36).toFixed(1) + "px))";
+        }
+      });
+      gallImgs.forEach(function(im){
+        var r = im.parentElement.getBoundingClientRect();
+        if(r.bottom < 0 || r.top > window.innerHeight) return;
+        var p = (r.top + r.height/2 - window.innerHeight/2) / window.innerHeight;
+        im.style.transform = "translateY(" + (p*-9).toFixed(2) + "%)";
+      });
+    }
+  }
+  var ticking=false;
+  window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ onScroll(); ticking=false; }); } }, {passive:true});
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  /* ---------- Reveal ---------- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+  /* ---------- Counters ---------- */
+  function animateCount(el){
+    var target = parseInt(el.getAttribute("data-count"),10);
+    var suffix = el.getAttribute("data-suffix") || "+";
+    if(reduced){ el.textContent = target.toLocaleString("en-US") + suffix; return; }
+    var start = null, dur = 1600;
+    function step(ts){
+      if(!start) start = ts;
+      var p = clamp((ts-start)/dur,0,1);
+      var eased = 1 - Math.pow(1-p,3);
+      el.textContent = Math.round(target*eased).toLocaleString("en-US") + (p===1 ? suffix : "");
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ animateCount(e.target); cio.unobserve(e.target); } });
+  }, {threshold:0.4});
+  document.querySelectorAll("[data-count]").forEach(function(el){ cio.observe(el); });
+
+  /* ---------- Tour rail active stop ---------- */
+  var stops = ["arrival","lounge","floor","playroom","strategy","screening","rooftop"];
+  var railLinks = {};
+  document.querySelectorAll(".tour-rail a").forEach(function(a){ railLinks[a.getAttribute("data-stop")] = a; });
+  var sio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        Object.keys(railLinks).forEach(function(k){ railLinks[k].classList.remove("active"); });
+        var link = railLinks[e.target.id];
+        if(link) link.classList.add("active");
+      }
+    });
+  }, {rootMargin:"-40% 0px -50% 0px"});
+  stops.forEach(function(id){ var el=document.getElementById(id); if(el) sio.observe(el); });
+
+  /* ---------- Sectors explorer ---------- */
+  var sectors = [
+    {n:"Beauty", d:"Skincare, makeup and fragrance creators who turn routines into rituals — tutorials, honest reviews and launch content the region trusts before it buys.", chips:["Tutorials & GRWM","Launch campaigns","Reviews & UGC","Live shopping"]},
+    {n:"Fashion", d:"Editorial looks and everyday style from MENA designers and global labels — shot on the Campaign Floor, styled for feeds that travel.", chips:["Editorial shoots","Retail & e-commerce","Fashion weeks","Styling series"]},
+    {n:"Entertainment", d:"Film, streaming and celebrity moments — including the Jackie Chan × V of BTS collaboration this house is known for.", chips:["Celebrity collabs","Film & streaming promos","Red carpets","Fan activations"]},
+    {n:"Food & Beverage", d:"Recipes, restaurant runs and product stories that make people hungry — and make brands the answer.", chips:["Recipe content","Restaurant launches","Product sampling","Ramadan & seasonal"]},
+    {n:"Gaming", d:"Streamers and gaming creators with loyal, loud communities — launches, sponsorships and live moments that trend.", chips:["Game launches","Streaming sponsorships","Esports moments","Community events"]},
+    {n:"Lifestyle", d:"Family, travel, wellness and daily life — the trusted voices audiences check in with every single day.", chips:["Travel & hotels","Family & parenting","Wellness","Daily vlogs"]}
+  ];
+  var sBtns = document.getElementById("sectorBtns");
+  var sPanel = document.getElementById("sectorPanel");
+  function renderSector(i){
+    var s = sectors[i];
+    sPanel.innerHTML = '<div class="big">0'+(i+1)+'</div><div><h3>'+s.n+'</h3><p>'+s.d+'</p><div class="chips">'+
+      s.chips.map(function(c){return "<span>"+c+"</span>";}).join("")+"</div></div>";
+    Array.prototype.forEach.call(sBtns.children, function(b,bi){ b.classList.toggle("active", bi===i); });
+  }
+  sectors.forEach(function(s,i){
+    var b=document.createElement("button");
+    b.type="button"; b.textContent=s.n; b.setAttribute("role","tab");
+    b.addEventListener("click", function(){ renderSector(i); });
+    sBtns.appendChild(b);
+  });
+  renderSector(0);
+
+  /* ---------- Screening room cases ---------- */
+  var cases = [
+    {tab:"Iconic", tag:"Entertainment · Global collaboration", title:"Jackie Chan × <em>V of BTS</em>", img:"https://dmmcy0pwk6bqi.cloudfront.net/1c84a2c8824d96bda0f1a1f401002257109cee23", alt:"Campaign floor production set",
+     d:"Two worlds, one frame. TalentPlus brought a martial-arts legend and a K-pop icon together — the kind of casting that only happens when a house knows both cultures deeply.",
+     res:[["Global","Press & social reach"],["2","Icons, one campaign"],["MENA → World","How it travelled"]]},
+    {tab:"Shark Tank", tag:"Entertainment · TV & founders", title:"Shark Tank <em>energy, creator reach</em>", img:"https://dmmcy0pwk6bqi.cloudfront.net/70f1d2239d7e48aaec7a2ec0ce27397e1fb1df80", alt:"Strategy room planning a television campaign",
+     d:"Founders pitch in the tank; creators carry the story outside it. TalentPlus pairs broadcast moments with creator amplification so the pitch keeps selling after the episode ends.",
+     res:[["TV + Social","Paired amplification"],["Founders","Front and centre"],["Ongoing","Beyond the episode"]]},
+    {tab:"Mae Musk", tag:"Beauty & lifestyle · Icon series", title:"Mae Musk — <em>timeless, not trending</em>", img:"https://dmmcy0pwk6bqi.cloudfront.net/098ce361ae2449de4313a608147645ebcec46c7a", alt:"Beauty creator filming in the studio",
+     d:"A campaign built on presence over hype: an icon whose audience spans generations, matched with beauty storytelling that respects every one of them.",
+     res:[["Multi-gen","Audience span"],["Beauty","Sector"],["Icon-led","Creative direction"]]}
+  ];
+  var cTabs = document.getElementById("caseTabs");
+  var cPanel = document.getElementById("casePanel");
+  function renderCase(i){
+    var c = cases[i];
+    cPanel.innerHTML = '<div class="ph"><img src="'+c.img+'" alt="'+c.alt+'"></div><div class="tx"><p class="tag">'+c.tag+'</p><h3>'+c.title+'</h3><p>'+c.d+'</p><div class="case-results">'+
+      c.res.map(function(r){return "<div><b>"+r[0]+"</b><span>"+r[1]+"</span></div>";}).join("")+"</div></div>";
+    Array.prototype.forEach.call(cTabs.children, function(b,bi){ b.classList.toggle("active", bi===i); });
+  }
+  cases.forEach(function(c,i){
+    var b=document.createElement("button");
+    b.type="button"; b.textContent=c.tab; b.setAttribute("role","tab");
+    b.addEventListener("click", function(){ renderCase(i); });
+    cTabs.appendChild(b);
+  });
+  renderCase(0);
+
+  /* ---------- Marquee ---------- */
+  var words = ["Creator Casting","Campaign Strategy","Content Production","Talent Management","Paid Amplification","Events & PR","MENA → Global","Gushcloud Network"];
+  var half = words.map(function(w){return "<span>"+w+"</span><i>✦</i>";}).join("");
+  document.getElementById("mqTrack").innerHTML = half + half;
+
+  /* ---------- Brief form -> mailto ---------- */
+  document.getElementById("briefForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var name=document.getElementById("fName").value.trim();
+    var comp=document.getElementById("fCompany").value.trim();
+    var type=document.getElementById("fType").value;
+    var sector=document.getElementById("fSector").value;
+    var msg=document.getElementById("fMsg").value.trim();
+    var subject = encodeURIComponent("New brief — " + (comp || name) + " (" + type + ")");
+    var body = encodeURIComponent("Name: "+name+"\nBrand/Company: "+comp+"\nI am a: "+type+"\nSector: "+sector+"\n\nWhat are we making?\n"+msg);
+    window.location.href = "mailto:info@talentplus.me?subject="+subject+"&body="+body;
+    document.getElementById("briefSent").style.display="block";
+  });
+})();
+</script>
+</body>
+</html>
